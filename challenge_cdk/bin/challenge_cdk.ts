@@ -2,6 +2,7 @@
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
 import { ChallengeCdkStack } from '../lib/challenge_cdk-stack';
+import { randomUUID } from 'crypto';
 
 const app = new cdk.App();
 new ChallengeCdkStack(app, 'ChallengeCdkStack', {
@@ -18,4 +19,5 @@ new ChallengeCdkStack(app, 'ChallengeCdkStack', {
   // env: { account: '123456789012', region: 'us-east-1' },
 
   /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
+  domainName: process.env.CDK_DOMAIN_NAME || `www.challenge-site-${randomUUID()}.com`
 });

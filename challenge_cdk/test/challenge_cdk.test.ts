@@ -1,6 +1,5 @@
 import * as cdk from "aws-cdk-lib";
 import { Match, Template } from "aws-cdk-lib/assertions";
-import { randomUUID } from "crypto";
 import * as ChallengeCdk from "../lib/challenge_cdk-stack";
 
 // example test. To run these tests, uncomment this file along with the
@@ -11,6 +10,7 @@ test("S3 Bucket Created", () => {
     env: {
       region: "us-east-1",
     },
+    domainName: 'foobar'
   });
   const template = Template.fromStack(stack);
 
@@ -27,13 +27,14 @@ test("Hosted Zone Created", () => {
     env: {
       region: "us-east-1",
     },
+    domainName: "foobar"
   });
   const template = Template.fromStack(stack);
 
   template.hasResource("AWS::Route53::HostedZone", {});
   template.hasResourceProperties("AWS::Route53::HostedZone", {
     Name: Match.stringLikeRegexp(
-      `www.challenge-site-(.){${randomUUID().length}}.com`
+      `foobar`
     ),
   });
 });
