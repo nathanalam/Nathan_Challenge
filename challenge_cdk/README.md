@@ -10,6 +10,7 @@ To deploy this in your AWS account, do the following:
  aws configure
  ```
  Then, provide an Access Key ID, Secret Access Key, and default region to deploy to
+
 2. Deploy CDK
  Run the following:
  ```
@@ -17,6 +18,7 @@ To deploy this in your AWS account, do the following:
  npx cdk bootstrap
  npx cdk deploy
  ```
+
 3. Wait for ACM to verify DNS ownership (can take up to 72 hours, but usually within an hour)
 
 
