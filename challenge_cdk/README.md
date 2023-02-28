@@ -1,4 +1,4 @@
-# Static SIte Hosting Challenge
+# Static Site Hosting Challenge
 
 This is a Typescript CDK project that will deploy the assets in the `website-dist` folder into an S3 bucket and set it up for public hosting through an SSL securitized FQDN.
 
